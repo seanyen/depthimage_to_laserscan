@@ -9,6 +9,7 @@ find_package(ament_cmake_ros REQUIRED)
 find_package(image_geometry REQUIRED)
 find_package(OpenCV REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(rclcpp_components REQUIRED)
 find_package(sensor_msgs REQUIRED)
 
 include_directories(include)
@@ -22,13 +23,17 @@ ament_target_dependencies(DepthImageToLaserScan
   "sensor_msgs"
 )
 
-add_library(DepthImageToLaserScanROS
+add_library(DepthImageToLaserScanROS SHARED
   src/DepthImageToLaserScanROS.cpp
 )
 ament_target_dependencies(DepthImageToLaserScanROS
   "rclcpp"
+  "rclcpp_components"
 )
 target_link_libraries(DepthImageToLaserScanROS DepthImageToLaserScan)
+
+rclcpp_components_register_nodes(DepthImageToLaserScanROS
+  "depthimage_to_laserscan::DepthImageToLaserScanROS")
 
 add_executable(depthimage_to_laserscan_node
   src/depthimage_to_laserscan.cpp

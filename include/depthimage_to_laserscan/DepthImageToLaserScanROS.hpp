@@ -43,10 +43,10 @@
 
 namespace depthimage_to_laserscan
 {
-  class DepthImageToLaserScanROS
+  class DepthImageToLaserScanROS final : public rclcpp::Node
   {
   public:
-    explicit DepthImageToLaserScanROS(rclcpp::Node::SharedPtr & node);
+    explicit DepthImageToLaserScanROS(const rclcpp::NodeOptions & options);
 
     ~DepthImageToLaserScanROS();
 
@@ -63,7 +63,6 @@ namespace depthimage_to_laserscan
 
     void infoCb(sensor_msgs::msg::CameraInfo::SharedPtr info);
 
-    rclcpp::Node::SharedPtr node_;
     sensor_msgs::msg::CameraInfo::SharedPtr cam_info_;
 
     rclcpp::Subscription<sensor_msgs::msg::CameraInfo>::SharedPtr cam_info_sub_;
