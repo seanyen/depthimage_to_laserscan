@@ -37,7 +37,7 @@
 #include <cmath>
 #include <string>
 
-#include <depthimage_to_laserscan/depth_traits.h>
+#include <depthimage_to_laserscan/depth_traits.hpp>
 #include <image_geometry/pinhole_camera_model.h>
 #include <opencv2/core/core.hpp>
 #include <sensor_msgs/msg/camera_info.hpp>
