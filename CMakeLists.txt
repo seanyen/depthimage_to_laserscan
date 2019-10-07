@@ -48,7 +48,6 @@ install(DIRECTORY
   DESTINATION share/${PROJECT_NAME}/
 )
 
-
 install(TARGETS DepthImageToLaserScan DepthImageToLaserScanROS
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
